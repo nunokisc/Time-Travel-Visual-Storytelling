@@ -1,0 +1,432 @@
+<head>
+  <title>Names in pictures</title>
+<style type="text/css">
+h2 a {text-decoration: underline;color: blue;}
+a {text-decoration: none;color: black;}
+  #hoverThumb {
+    height: 300px;
+    width: 300px;
+    position:absolute;
+    min-height: 1px;
+    z-index: 100;
+    
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    
+    -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    -ms-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    -o-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    
+    
+  }
+  .lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 32px 32px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #000;
+    margin: -3px 0 0 -3px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 50px;
+    left: 50px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 54px;
+    left: 45px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 57px;
+    left: 39px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 58px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 57px;
+    left: 25px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 54px;
+    left: 19px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 50px;
+    left: 14px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 45px;
+    left: 10px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .wrap{
+    margin:0px auto;
+    width:800px;
+  }
+  #dataYear{
+    position:absolute; 
+    background:#ED473B;
+    left:80%;
+    top:0px;
+    color:white;
+    padding:0px 10px;
+  } 
+
+  .header{ 
+    min-width:400px;
+    width:90%; 
+    position:fixed;
+    top:0px;
+    margin:0px auto; 
+    background:#fff;
+    z-index:1;
+    padding-right:15%;
+    font-size:35px; 
+    color:#c9c9c9;
+    box-shadow:0 0 5px 0px #ccc; 
+  }
+  .timeline{
+    width:100%;
+    margin:10px 0px 300px 0px; 
+    padding-top:50px;
+    position: relative;
+    overflow:auto;
+    border-bottom:2px solid #f1f1f1;
+
+  }
+  .timeline:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 49.5%;
+    top: 120px;
+    width: 3px;
+    height: 92%;
+    background: #666;
+  }
+  .year{
+    transition: all 0.4s ease-in-out;
+
+    width:100%; 
+    margin-bottom:50px;
+    position: relative;
+  }
+  .evt{
+    min-height:100px;
+    width:100%; 
+    margin-bottom:20px;
+    position:relative;
+
+
+  }
+
+  .evt:nth-child(even) .in{
+    float:left;
+  }
+  .evt:nth-child(odd) .in{
+    float:right;
+  }
+  p{  
+    padding: 10px;
+    margin: 0;
+    font-size: 14px;
+    background: #f1f1f1;
+    color: #656565;
+  }
+  h2{
+    padding: 15px;
+    margin: 0;
+    color: #333;
+    font-size: 20px;
+    letter-spacing: -1px;
+    position: relative;
+  }
+
+  .in h2{
+    border-radius: 5px 5px 0 0;
+    background:#c1c1c1;
+
+  }
+  .date{
+    transition: all 0.2s ease-in-out;
+    display: block;
+    width: 8%;
+    position: absolute;
+    top: 10px;
+    left: 45.7%;   
+    line-height:60px;
+    border-radius: 100%;
+    font-size: 16px;
+    background: #fff;
+    color:#333;
+    font-weight:900;
+    text-align:center;
+    border: 2px solid #fff;
+  }
+  .in{
+    width: 40%; 
+    float: left;
+    margin: 5px 0 0 0;
+  }
+  .activeYear{
+    background:#ED473B; 
+    color:#fff;
+    border-color:#fff;
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+</head>
+
+<body>
+	<div style="margin-left:60%; width: 30%; position:fixed;" id="image"></div>
+
+	<div class="header"><span style="
+    margin-right: 20%;
+    font-size: 30px;
+    color: black;
+"><a href="http://nlp.nunocardoso.eu:5000/">Names in pictures</a></span>Query: <input id="query" type="text" name=""/><button id="searchButton" onclick="getData($('#query').val());">Pesquisar</button>
+		<div id="dataYear"></div>
+	</div>
+	<div class="wrap">
+		<div class="timeline" id="content">
+		</div>
+	</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript">
+var socket = io.connect('http://' + document.domain + ':' + location.port , {
+    reconnection: true,
+    reconnectionDelay: 1000,
+    reconnectionDelayMax : 5000,
+    reconnectionAttempts: 99999
+});
+  socket.on('connect', function() {
+        socket.emit('join', "teste");
+    });
+    socket.on('disconnect', function() {
+        socket.emit('leave', "teste");
+    });
+    socket.on('size', function(data) {
+        console.log(data);
+    });
+    socket.on('currentStep', function(data) {
+        console.log(data);
+    });
+    socket.on('state', function(data) {
+        console.log(data);
+    });
+    
+	var tamanhoAdicionado = 0;
+	var jakim = 0;
+	if (!String.prototype.splice) {
+     String.prototype.splice = function(start, delCount, newSubStr) {
+       tamanhoAdicionado += newSubStr.length;
+       return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
+     };
+   }
+   var content = [];
+   var headline = "";
+   var img;
+   var actualYear;
+   var oldYear = new Date();
+   var aux = 0;
+   var data = "";
+function getData(query)
+{
+  if(query != " " || query != "")
+  {
+    $("#searchButton").attr("disabled", true);
+    $("#content").html('<center><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></center>');
+    $("#content").append('<center>Isto pode demorar algum tempo por favor espere...</center>');
+    socket.emit('query', {query:query, room:'teste'});
+  }
+}
+ socket.on('result', function(data){
+  $.ajax({
+    type: "GET",
+    dataType:'json',
+    url: data,
+    success: function(data){
+     content = data;
+     $("#content").html('');
+     $("#searchButton").attr("disabled", false);
+     formatData();
+   }
+ }); 
+});
+/*   function getData(query)
+   {
+    if(query != " " || query != "")
+    {
+     $("#searchButton").attr("disabled", true);
+     $("#content").html('<center><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></center>');
+     $.ajax({
+      type: "GET",
+      dataType:'json',
+      timeout: 240000,
+      url: "http://nlp.nunocardoso.eu:5001/query/"+query,
+      success: function(data){
+       $.ajax({
+        type: "GET",
+        dataType:'json',
+        url: data,
+        success: function(data){
+         content = data;
+         $("#content").html('');
+         $("#searchButton").attr("disabled", false);
+         formatData();
+       }
+     });
+     }
+   });	
+   }
+ }*/
+
+ function formatData()
+ {
+  data = "";
+		$.each(content, function(index, headline) {
+      $.each(headline.headline, function(index, persons) {
+       tamanhoAdicionado = 0;
+       headline = persons.headline;
+       //console.log(persons);
+       $.each(persons.persons, function(index, person) {
+        console.log(person);
+        if(person.imgSrc != null)
+        {
+         jakim ++;
+         headline = headline.splice(parseInt(person.start_char)+tamanhoAdicionado, 0, "<span><a class='imgPerson' data-image='"+person.imgSrc+"' href='#"+jakim+"'>");
+         headline = headline.splice(parseInt(person.end_char)+tamanhoAdicionado, 0, "</a></span>");
+       }
+       else
+       {
+        jakim ++;
+        headline = headline.splice(parseInt(person.start_char)+tamanhoAdicionado, 0, "<span><a class='imgPerson' data-image='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' href='#"+jakim+"'>");
+        headline = headline.splice(parseInt(person.end_char)+tamanhoAdicionado, 0, "</a></span>");
+        console.log("existe");
+       }
+     })
+       actualYear = new Date(persons.date);
+       if(actualYear.getFullYear() != oldYear.getFullYear())
+       {
+         if(aux == 0)
+         {
+          data += '<div class="year">';
+          data += '<h2>'+actualYear.getFullYear()+'</h2>';
+          aux = 1;
+        }
+        else
+        {
+          data +='</div>';
+          data +='<div class="year">';
+          data +='<h2>'+actualYear.getFullYear()+'</h2>';
+
+        }
+        data +='<div class="evt">'+
+        '<div class="in">'+
+        '<span class="date">'+
+        '<span class="day">'+actualYear.getDate()+'</span>'+
+        '<span class="month">'+actualYear.toDateString().substring(4,7)+'</span>'+
+        '</span>'+
+        '<h2>'+headline+'</h2>'+
+        '</div>'+
+        '</div>';
+      }
+      else
+      {
+       data +='<div class="evt">'+
+       '<div class="in">'+
+       '<span class="date">'+
+       '<span class="day">'+actualYear.getDate()+'</span>'+
+       '<span class="month">'+actualYear.toDateString().substring(4,7)+'</span>'+
+       '</span>'+
+       '<h2>'+headline+'</h2>'+
+       '</div>'+
+       '</div>';
+     }
+     oldYear = new Date(persons.date);
+   })
+    });
+
+   $("#content").append(data);
+
+   $(".imgPerson").mouseenter(function(){
+    $('<div id="hoverThumb"><img src="'+$(this).data('image')+'" alt="image" width="100%" /></div>').css({'background-color': '#fff'}).appendTo($(this).parent('span'));
+  });
+
+   $(".imgPerson").mouseleave(function(){
+    $('div#hoverThumb').remove();
+  });
+
+   year = $('.year').find('h2').first().text();
+   $('#dataYear').html(year); 
+   $('.year').first().find('.date').addClass('activeYear');
+ }
+ $(function(){
+  $(window).scroll(function(){
+    //console.log("scroll");
+    $('.year').each(function(){
+      var year = $(this).find('h2').first().text();
+      if($(this).offset().top < $(document).scrollTop() +100){
+        $(this).find('.date').addClass('activeYear');
+        $('#dataYear').html(year);
+      }else{
+        $(this).find('.date').removeClass('activeYear');
+      }
+    });
+  });
+});
+ $(document).ready(function(){
+  var year;
+});
+</script>

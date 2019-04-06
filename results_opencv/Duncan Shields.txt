@@ -1,0 +1,1 @@
+{"results": [], "stats": {"n_docs": 27, "n_domains": 4, "time": 0.03331589698791504, "n_unique_docs": 23}, "domains": ["www.lux.iol.pt", "sol.sapo.pt", "www.dn.pt", "www.record.pt"]}
